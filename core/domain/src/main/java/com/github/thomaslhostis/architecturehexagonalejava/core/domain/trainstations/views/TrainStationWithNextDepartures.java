@@ -31,7 +31,7 @@ public class TrainStationWithNextDepartures {
         private final String destination;
         private final LocalDateTime departureTime;
 
-        NextDeparture(String destination, LocalDateTime departureTime) {
+        public NextDeparture(String destination, LocalDateTime departureTime) {
             this.destination = destination;
             this.departureTime = departureTime;
         }

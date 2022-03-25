@@ -1,0 +1,5 @@
+timeout:
+  rest-template:
+    connect: 5  # En secondes
+    read: 10    # En secondes
+

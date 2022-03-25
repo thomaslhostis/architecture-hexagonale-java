@@ -16,7 +16,10 @@ public class TrainStationsUseCases {
     private final TrainStationsService trainStationsService;
 
     @Autowired
-    public TrainStationsUseCases(TrainStationsProjectionRepository trainStationsProjectionRepository, TrainStationsService trainStationsService) {
+    public TrainStationsUseCases(
+            TrainStationsProjectionRepository trainStationsProjectionRepository,
+            TrainStationsService trainStationsService
+    ) {
         this.trainStationsProjectionRepository = trainStationsProjectionRepository;
         this.trainStationsService = trainStationsService;
     }

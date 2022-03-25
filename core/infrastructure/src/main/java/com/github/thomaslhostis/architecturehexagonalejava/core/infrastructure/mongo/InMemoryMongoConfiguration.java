@@ -20,30 +20,30 @@ public class InMemoryMongoConfiguration {
     private static final String DATABASE_NAME = "test";
 
     @Bean
-    String mongoUri(MongoServer mongoServer) {
+    public String mongoUri(MongoServer mongoServer) {
         InetSocketAddress serverAddress = mongoServer.getLocalAddress();
         return "mongodb://" + serverAddress.getHostName() + ":" + serverAddress.getPort() + "/" + DATABASE_NAME;
     }
 
     @Bean
-    MongoDatabaseFactory mongoDbFactory(String mongoUri) {
+    public MongoDatabaseFactory mongoDbFactory(String mongoUri) {
         return new SimpleMongoClientDatabaseFactory(mongoUri);
     }
 
     @Bean
-    MongoTemplate mongoTemplate(MongoDatabaseFactory mongoDatabaseFactory) {
+    public MongoTemplate mongoTemplate(MongoDatabaseFactory mongoDatabaseFactory) {
         return new MongoTemplate(mongoDatabaseFactory);
     }
 
     @Bean(destroyMethod = "shutdown")
-    MongoServer mongoServer() {
+    public MongoServer mongoServer() {
         MongoServer mongoServer = new MongoServer(new MemoryBackend());
         mongoServer.bind();
         return mongoServer;
     }
 
     @Bean
-    MongoClient mongoClient(String mongoUri) {
+    public MongoClient mongoClient(String mongoUri) {
         ConnectionString connectionString = new ConnectionString(mongoUri);
         MongoClientSettings mongoClientSettings = MongoClientSettings.builder()
                 .applyConnectionString(connectionString)

@@ -30,7 +30,7 @@ public class TrainStationsController {
     }
 
     @PostMapping("/api/train-station")
-    ResponseEntity<HttpStatus> createTrainStation(
+    public ResponseEntity<HttpStatus> createTrainStation(
             @RequestBody TrainStationInput trainStationInput
     ) {
         TrainStation trainStation = trainStationInput.toDomainInstance();
@@ -39,7 +39,7 @@ public class TrainStationsController {
     }
 
     @GetMapping("/api/train-station-with-next-departures")
-    ResponseEntity<TrainStationWithNextDeparturesOutput> getStationWithNextDepartures(
+    public ResponseEntity<TrainStationWithNextDeparturesOutput> getStationWithNextDepartures(
             @RequestParam("train_station_code") String trainStationCode
     ) {
         TrainStationWithNextDepartures trainStationWithNextDepartures =
@@ -50,7 +50,7 @@ public class TrainStationsController {
     }
 
     @PutMapping("/api/train-station")
-    ResponseEntity<HttpStatus> updateTrainStation(
+    public ResponseEntity<HttpStatus> updateTrainStation(
             @RequestBody TrainStationInput trainStationInput
     ) {
         TrainStation trainStation = trainStationInput.toDomainInstance();
@@ -59,7 +59,7 @@ public class TrainStationsController {
     }
 
     @GetMapping("/api/train-stations")
-    ResponseEntity<List<TrainStationOutput>> getAllTrainStations() {
+    public ResponseEntity<List<TrainStationOutput>> getAllTrainStations() {
         List<TrainStation> allTrainStations = trainStationsProjectionRepository.findAllTrainStations();
         List<TrainStationOutput> allTrainStationOutputs = allTrainStations.stream()
                 .map(TrainStationOutput::new)
@@ -68,7 +68,7 @@ public class TrainStationsController {
     }
 
     @DeleteMapping("/api/train-station")
-    ResponseEntity<HttpStatus> deleteTrainStation(
+    public ResponseEntity<HttpStatus> deleteTrainStation(
             @RequestParam("train_station_code") String trainStationCode
     ) {
         trainStationsUseCases.deleteTrainStation(trainStationCode);
