@@ -34,7 +34,7 @@
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <artifactId>spring-boot</artifactId>
         </dependency>
     </dependencies>
 
@@ -42,7 +42,6 @@
         <dependencies>
             <!-- Structure -->
             <dependency>
-                <!--TODO ${groupId} ? -->
                 <groupId>com.github.thomaslhostis.architecture-hexagonale-java</groupId>
                 <artifactId>bootstrap</artifactId>
                 <version>${project.version}</version>
