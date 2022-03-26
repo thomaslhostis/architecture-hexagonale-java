@@ -21,12 +21,14 @@
         <module>bootstrap</module>
         <module>commons</module>
         <module>core</module>
+        <module>tests</module>
     </modules>
 
     <properties>
         <!-- Project -->
         <java.version>1.8</java.version>
         <!-- Dependencies -->
+        <commons-lang3.version>3.12.0</commons-lang3.version>
         <cucumber.version>7.2.3</cucumber.version>
         <mongo-java-server.version>1.39.0</mongo-java-server.version>
     </properties>
@@ -71,11 +73,11 @@
                 <artifactId>infrastructure</artifactId>
                 <version>${project.version}</version>
             </dependency>
-            <!--            <dependency>-->
-            <!--                <groupId>com.github.thomaslhostis.architecture-hexagonale-java.tests</groupId>-->
-            <!--                <artifactId>functional</artifactId>-->
-            <!--                <version>${project.version}</version>-->
-            <!--            </dependency>-->
+            <dependency>
+                <groupId>com.github.thomaslhostis.architecture-hexagonale-java.tests</groupId>
+                <artifactId>functional-tests</artifactId>
+                <version>${project.version}</version>
+            </dependency>
             <!-- Tier dependencies -->
             <dependency>
                 <groupId>de.bwaldvogel</groupId>
@@ -102,6 +104,11 @@
                 <groupId>io.cucumber</groupId>
                 <artifactId>cucumber-spring</artifactId>
                 <version>${cucumber.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang3.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

@@ -24,7 +24,7 @@ public class IdfTrainStationsRestClientService implements TrainStationsService {
     public List<TrainStationWithNextDepartures.NextDeparture> findTrainStationNextDepartures(String trainStationCode) {
 
         ResponseEntity<IdfTrainStationNextDeparturesResponse> idfNextDeparturesResponse = idfTrainStationsRestTemplate.getForEntity(
-                "https://api.idf.fr/gares?code=$trainStationCode",
+                "https://api.idf.fr/gares?code=" + trainStationCode,
                 IdfTrainStationNextDeparturesResponse.class
         );
 

@@ -1,13 +1,13 @@
-# TODO
+# Dette et refactoring
 
 * [x] Simplifier le nom des packages
 * [x] Nettoyer les pom
-* [ ] Tests fonctionnels
-* [ ] GlobalExceptionHandler
+* [x] Tests fonctionnels
+* [x] GlobalExceptionHandler
+* [ ] Branche exercice
 * [ ] Tests d'intégration MongoDB
 * [ ] CI
 * [ ] GitHub Actions
-* [ ] Branche exercice
 * [ ] Readme général
 * [ ] Readme exercice
 * [ ] Readme commons
@@ -15,5 +15,4 @@
 * [ ] Swagger
 * [ ] Coverage
 * [ ] Branche de présentation
-* [ ] 
 * [ ] 

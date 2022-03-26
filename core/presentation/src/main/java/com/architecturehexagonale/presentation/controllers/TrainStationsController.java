@@ -9,6 +9,7 @@ import com.architecturehexagonale.presentation.io.trainstations.TrainStationOutp
 import com.architecturehexagonale.presentation.io.trainstations.TrainStationWithNextDeparturesOutput;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,12 +25,15 @@ public class TrainStationsController {
     private final TrainStationsProjectionRepository trainStationsProjectionRepository;
 
     @Autowired
-    public TrainStationsController(TrainStationsUseCases trainStationsUseCases, TrainStationsProjectionRepository trainStationsProjectionRepository) {
+    public TrainStationsController(
+            TrainStationsUseCases trainStationsUseCases,
+            TrainStationsProjectionRepository trainStationsProjectionRepository
+    ) {
         this.trainStationsUseCases = trainStationsUseCases;
         this.trainStationsProjectionRepository = trainStationsProjectionRepository;
     }
 
-    @PostMapping("/api/train-station")
+    @PostMapping(value = "/api/train-station", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<HttpStatus> createTrainStation(
             @RequestBody TrainStationInput trainStationInput
     ) {

@@ -14,7 +14,10 @@ import java.util.stream.Collectors;
 public class IdfTrainStationNextDeparturesResponse {
     @JsonProperty("next_departures")
     @Nullable
-    private final List<NextDeparture> nextDepartures;
+    private List<NextDeparture> nextDepartures;
+
+    public IdfTrainStationNextDeparturesResponse() {
+    }
 
     public IdfTrainStationNextDeparturesResponse(@Nullable List<NextDeparture> nextDepartures) {
         this.nextDepartures = nextDepartures;
@@ -30,7 +33,8 @@ public class IdfTrainStationNextDeparturesResponse {
                 )).collect(Collectors.toList());
     }
 
-    static class NextDeparture {
+    public static class NextDeparture {
+        @JsonProperty("destination")
         @Nullable
         private final String destination;
         @JsonProperty("departure_time")
