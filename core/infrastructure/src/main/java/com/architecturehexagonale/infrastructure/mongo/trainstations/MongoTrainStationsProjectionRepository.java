@@ -51,9 +51,4 @@ public class MongoTrainStationsProjectionRepository implements TrainStationsProj
                 .map(TrainStationDocument::toDomainInstance)
                 .collect(Collectors.toList());
     }
-
-    @Override
-    public void deleteTrainStation(String trainStationCode) {
-        trainStationsRepository.deleteByCode(trainStationCode);
-    }
 }

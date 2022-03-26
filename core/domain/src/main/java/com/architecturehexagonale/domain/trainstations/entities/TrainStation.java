@@ -20,8 +20,6 @@ public class TrainStation {
     }
 
     public void validate() {
-        if (!code.startsWith(CODE_PREFIX)) {
-            throw new IllegalArgumentException("Le code de la station de train doit commencer par " + CODE_PREFIX);
-        }
+        //TODO
     }
 }

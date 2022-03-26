@@ -7,7 +7,6 @@ import io.cucumber.java.fr.Alors;
 import io.cucumber.java.fr.Lorsque;
 import io.cucumber.java8.Fr;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 
 public class SupprimerUneGare implements Fr {
     @Autowired
@@ -19,14 +18,12 @@ public class SupprimerUneGare implements Fr {
 
     @Lorsque("je supprime cette gare")
     public void jeSupprimeCetteGare() {
-        ResponseEntity<?> responseEntity = trainStationsClient.deleteTrainStation(trainStationBuilder.getCode(), null);
-        testContext.setResponseEntity(responseEntity);
+        throw new RuntimeException("Not yet implemented");
     }
 
     @Lorsque("^je tente de supprimer la gare \"([^\"]*)\"$")
     public void jeTenteDeSupprimerLaGare(String trainStationCode) {
-        ResponseEntity<?> responseEntity = trainStationsClient.deleteTrainStation(trainStationCode, "should fail");
-        testContext.setResponseEntity(responseEntity);
+        throw new RuntimeException("Not yet implemented");
     }
 
     @Alors("cette gare est supprimée avec succès")

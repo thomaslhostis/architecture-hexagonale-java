@@ -16,6 +16,4 @@ public interface TrainStationsProjectionRepository {
     void updateTrainStation(TrainStation trainStation);
 
     List<TrainStation> findAllTrainStations();
-
-    void deleteTrainStation(String trainStationCode);
 }

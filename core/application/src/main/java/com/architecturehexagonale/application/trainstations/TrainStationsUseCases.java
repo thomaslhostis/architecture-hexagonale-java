@@ -1,14 +1,11 @@
 package com.architecturehexagonale.application.trainstations;
 
 import com.architecturehexagonale.domain.trainstations.entities.TrainStation;
-import com.architecturehexagonale.domain.trainstations.exceptions.TrainStationNotFoundException;
 import com.architecturehexagonale.domain.trainstations.projectionrepositories.TrainStationsProjectionRepository;
 import com.architecturehexagonale.domain.trainstations.services.TrainStationsService;
 import com.architecturehexagonale.domain.trainstations.views.TrainStationWithNextDepartures;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import java.util.List;
 
 @Component
 public class TrainStationsUseCases {
@@ -33,31 +30,17 @@ public class TrainStationsUseCases {
     }
 
     public TrainStationWithNextDepartures findTrainStationWithNextDepartures(String trainStationCode) {
-        TrainStation trainStation = trainStationsProjectionRepository.findByCode(trainStationCode)
-                .orElseThrow(() -> new TrainStationNotFoundException(trainStationCode));
-
-        List<TrainStationWithNextDepartures.NextDeparture> nextDepartures =
-                trainStationsService.findTrainStationNextDepartures(trainStationCode);
-
-        return new TrainStationWithNextDepartures(
-                trainStation.getCode(),
-                trainStation.getLabel(),
-                nextDepartures
-        );
+        throw new RuntimeException("Not yet implemented");
+        // 1. Récupérer la gare stockée en base de données à partir du code
+        // 2. Vérifier qu'elle existe, sinon `TrainStationNotFoundException`
+        // 3. Appeler le service partenaire pour récupérer les prochains départs de cette gare
+        // 4. Agréger et retourner le tout
     }
 
     public void updateTrainStation(TrainStation trainStation) {
-        trainStation.validate();
-        if (!trainStationsProjectionRepository.existsByCode(trainStation.getCode())) {
-            throw new TrainStationNotFoundException(trainStation.getCode());
-        }
-        trainStationsProjectionRepository.updateTrainStation(trainStation);
-    }
-
-    public void deleteTrainStation(String trainStationCode) {
-        if (!trainStationsProjectionRepository.existsByCode(trainStationCode)) {
-            throw new TrainStationNotFoundException(trainStationCode);
-        }
-        trainStationsProjectionRepository.deleteTrainStation(trainStationCode);
+        throw new RuntimeException("Not yet implemented");
+        // 1. Vérifier que le format du code de gare commence par "TRN_"
+        // 2. Vérifier que la gare existe à partir du code
+        // 3. Utiliser `trainStationsProjectionRepository` pour mettre à jour
     }
 }

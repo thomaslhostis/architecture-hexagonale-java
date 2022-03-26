@@ -1,7 +1,6 @@
 package com.architecturehexagonale.presentation.controllers;
 
 import com.architecturehexagonale.application.trainstations.TrainStationsUseCases;
-import com.architecturehexagonale.domain.trainstations.entities.TrainStation;
 import com.architecturehexagonale.domain.trainstations.projectionrepositories.TrainStationsProjectionRepository;
 import com.architecturehexagonale.domain.trainstations.views.TrainStationWithNextDepartures;
 import com.architecturehexagonale.presentation.io.trainstations.TrainStationInput;
@@ -14,10 +13,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.stream.Collectors;
-
-import static org.springframework.http.HttpStatus.CREATED;
-import static org.springframework.http.HttpStatus.OK;
 
 @RestController
 public class TrainStationsController {
@@ -37,9 +32,10 @@ public class TrainStationsController {
     public ResponseEntity<HttpStatus> createTrainStation(
             @RequestBody TrainStationInput trainStationInput
     ) {
-        TrainStation trainStation = trainStationInput.toDomainInstance();
-        trainStationsUseCases.createTrainStation(trainStation);
-        return new ResponseEntity(CREATED);
+        throw new RuntimeException("Not yet implemented");
+        // 1. Transformer l'input en objet du domaine
+        // 2. Utiliser `trainStationsUseCases` pour gérer la création
+        // 3. Retourner ResponseEntity(OK)
     }
 
     @GetMapping("/api/train-station-with-next-departures")
@@ -57,25 +53,19 @@ public class TrainStationsController {
     public ResponseEntity<HttpStatus> updateTrainStation(
             @RequestBody TrainStationInput trainStationInput
     ) {
-        TrainStation trainStation = trainStationInput.toDomainInstance();
-        trainStationsUseCases.updateTrainStation(trainStation);
-        return new ResponseEntity(OK);
+        throw new RuntimeException("Not yet implemented");
+        // 1. Transformer l'input en objet du domaine
+        // 2. Utiliser `trainStationsUseCases` pour mettre à jour
+        // 3. Retourner ResponseEntity(OK)
     }
 
     @GetMapping("/api/train-stations")
     public ResponseEntity<List<TrainStationOutput>> getAllTrainStations() {
-        List<TrainStation> allTrainStations = trainStationsProjectionRepository.findAllTrainStations();
-        List<TrainStationOutput> allTrainStationOutputs = allTrainStations.stream()
-                .map(TrainStationOutput::new)
-                .collect(Collectors.toList());
-        return ResponseEntity.ok(allTrainStationOutputs);
+        throw new RuntimeException("Not yet implemented");
+        // 1. Utiliser `trainStationsProjectionRepository` directement pour récupérer les gares
+        // 2. Convertir au format de sortie
+        // 3. Retourner le résultat
     }
 
-    @DeleteMapping("/api/train-station")
-    public ResponseEntity<HttpStatus> deleteTrainStation(
-            @RequestParam("train_station_code") String trainStationCode
-    ) {
-        trainStationsUseCases.deleteTrainStation(trainStationCode);
-        return new ResponseEntity(OK);
-    }
+    //TODO Bonus : suppression d'une gare
 }

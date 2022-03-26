@@ -31,5 +31,4 @@ public class TrainStationInput {
     public String getLabel() {
         return label;
     }
-
 }

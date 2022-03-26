@@ -10,6 +10,4 @@ public interface MongoTrainStationsRepository extends MongoRepository<TrainStati
     Boolean existsByCode(String trainStationCode);
 
     Optional<TrainStationDocument> findByCode(String trainStationCode);
-
-    void deleteByCode(String trainStationCode);
 }
